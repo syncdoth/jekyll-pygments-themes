@@ -1,0 +1,176 @@
+- identifier: general
+  name: General
+  items:
+    - selector: pre
+      description: Base Style
+      base: true
+    - selector: .p
+      description: Punctuation
+    - selector: .err
+      description: Error
+- identifier: names
+  name: Names
+  items:
+    - selector: .n
+      description: Base Style
+      base: true
+    - selector: .na
+      description: Name Attribute
+    - selector: .nb
+      description: Name Builtin
+    - selector: .nc
+      description: Name Class
+    - selector: .no
+      description: Name Constant
+    - selector: .nd
+      description: Name Decorator
+    - selector: .ni
+      description: Name Entity
+    - selector: .ne
+      description: Name Exception
+    - selector: .nf
+      description: Name Function
+    - selector: .nl
+      description: Name Label
+    - selector: .nn
+      description: Name Namespace
+    - selector: .nx
+      description: Name Other
+    - selector: .py
+      description: Name Property
+    - selector: .nt
+      description: Name Tag
+    - selector: .nv
+      description: Name Variable
+    - selector: .vc
+      description: Name Variable Class
+    - selector: .vg
+      description: Name Variable Global
+    - selector: .vi
+      description: Name Variable Instance
+    - selector: .bp
+      description: Name Builtin Pseudo
+- identifier: generic
+  name: Generic
+  items:
+    - selector: .g
+      description: Base Style
+      base: true
+    - selector: .gd
+- identifier: operators
+  name: Operators
+  items:
+    - selector: .o
+      description: Base Style
+      base: true
+    - selector: .ow
+      description: Operator Word
+- identifier: comments
+  name: Comments
+  items:
+    - selector: .c
+      base: true
+      description: Base Style
+    - selector: .cm
+      description: Comment Multiline
+    - selector: .cp
+      description: Comment Preproc
+    - selector: .c1
+      description: Comment Single
+    - selector: .cs
+      description: Comment Special
+- identifier: keywords
+  name: Keywords
+  items:
+    - selector: .k
+      description: Base Style
+      base: true
+    - selector: .kc
+      description: Keyword Constant
+    - selector: .kd
+      description: Keyword Declaration
+    - selector: .kn
+      description: Keyword Namespace
+    - selector: .kp
+      description: Keyword Pseudo
+    - selector: .kr
+      description: Keyword Reserved
+    - selector: .kt
+      description: Keyword Type
+- identifier: literals
+  name: Literals
+  items:
+    - selector: .l
+      description: Base Style
+      base: true
+    - selector: .ld
+      description: Literal Date
+    - selector: .m
+      description: Literal Number
+    - selector: .mf
+      description: Literal Number Float
+    - selector: .mh
+      description: Literal Number Hex
+    - selector: .mi
+      description: Literal Number Integer
+    - selector: .mo
+      description: Literal Number Oct
+    - selector: .il
+      description: Literal Number Integer Long
+    - selector: .s
+      description: Literal String
+    - selector: .sb
+      description: Literal String Backtick
+    - selector: .sc
+      description: Literal String Char
+    - selector: .sd
+      description: Literal String Doc
+    - selector: .s2
+      description: Literal String Double
+    - selector: .se
+      description: Literal String Escape
+    - selector: .sh
+      description: Literal String Heredoc
+    - selector: .si
+      description: Literal String Interpol
+    - selector: .sx
+      description: Literal String Other
+    - selector: .sr
+      description: Literal String Regex
+    - selector: .s1
+      description: Literal String Single
+    - selector: .ss
+      description: Literal String Symbol
+- identifier: generic
+  name: Generic
+  items:
+    - selector: .g
+      description: Base Style
+      base: true
+    - selector: .gd
+      description: Generic Deleted
+    - selector: .ge
+      description: Generic Emph
+    - selector: .gr
+      description: Generic Error
+    - selector: .gh
+      description: Generic Heading
+    - selector: .gi
+      description: Generic Inserted
+    - selector: .go
+      description: Generic Output
+    - selector: .gp
+      description: Generic Prompt
+    - selector: .gs
+      description: Generic Strong
+    - selector: .gu
+      description: Generic Subheading
+    - selector: .gt
+      description: Generic Traceback
+- identifier: misc
+  name: Miscellaneous
+  items:
+    - selector: .x
+      description: Other
+    - selector: .w
+      description: Text Whitespace

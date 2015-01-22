@@ -1,0 +1,27 @@
+<section id="examples">
+  <div id="themes" class="row">
+    <div class="no-search-results text-center text-muted">
+      <h2><em><i class="fa fa-meh-o"></i> Sorry, no themes matching '<span class="user-input"></span>' found</em></h2>
+      <h4><a href="#" data-dismiss="search">Clear search <i class="fa fa-close"></i> </a></h4>
+    </div>
+    {% assign themes = site.data.themes %}
+    {% for theme in themes %}
+    <div class="mix col-lg-6" data-order="{{ forloop.index }}">
+      <div class="panel panel-info theme" data-theme-id="{{ theme.name }}">
+        <div class="panel-heading">
+          <h6>
+            <strong>{{ theme.name }}</strong>
+            <a data-event="download" data-label="{{ theme.name }}" href="https://raw.githubusercontent.com/jwarby/pygments-css/master/{{ theme.name }}.css" class="btn btn-info pull-right">
+              <i class="fa fa-download"></i>&nbsp;&nbsp;Download...
+            </a>
+          </h6>
+        </div>
+        <div class="panel-body preview-{{ theme.name }}">
+          {% capture sample %}samples/{{ include.language }}.html{% endcapture %}
+          {% include {{ sample }} %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

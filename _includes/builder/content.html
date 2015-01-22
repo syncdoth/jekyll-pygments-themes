@@ -1,0 +1,62 @@
+<section id="builder">
+  <div class="row">
+    <div class="col-lg-6 well">
+      <form class="form-horizontal row">
+        {% for group in site.data.format %}
+          <div class="row" data-group-id="{{ group.identifier }}">
+            <h3>{{ group.name }}</h3>
+            {% for item in group.items %}
+              <div class="{% if item.base == true %}base-style{% endif %} text-center form-group col-lg-6 {{ item.selector | replace:'.','' }}" id="{{ item.selector }}" data-description="{{ item.description }}">
+                <label class="control-label col-lg-4 {% if item.base == true %}text-info{% endif%}">
+                  {{ item.description }}
+                </label>
+                <div class="col-lg-8">
+                  {% include builder/controls.html %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </form>
+    </div>
+    <div class="col-lg-6 preview" role="tabpanel">
+      <div class="panel panel-info" data-theme-id="{{ theme.name }}">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="dropdown col-lg-4">
+              <strong>Preview Language: </strong>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="toggle-label">JavaScript</span><i class="fa fa-caret-down"></i></a>
+
+              <ul class="dropdown-menu dropdown-menu-right nav" role="tablist">
+                {% for language in site.data.languages %}
+                  <li role="presentation" class="{% if language.identifier == 'javascript' %}active{% endif %}">
+                    <a href="#tab-{{ language.identifier }}" role="tab" data-toggle="tab" data-event="change_preview_lang" data-label="{{ language.identifier }}">
+                    <i class="fa fa-circle{% if language.identifier != "javascript" %}-o{% endif %}"></i>&nbsp;&nbsp;
+                      {{ language.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body tab-content pulse">
+          {% for language in site.data.languages %}
+            <div role="tabpanel" class="tab-pane {% if language.identifier == 'javascript' %}active{% endif %}" id="tab-{{ language.identifier }}">
+              {% capture path %}samples/{{ language.identifier }}.html{% endcapture %}
+              {% include {{path}} %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="col-lg-12 text-center">
+      <a href="#" id="download_custom_theme" class="btn btn-success btn-lg" data-label="download">
+        <i class="fa fa-download"></i>&nbsp;&nbsp;Download custom theme...
+      </a>
+    </div>
+  </div>
+</section>

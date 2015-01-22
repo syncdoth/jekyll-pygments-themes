@@ -1,0 +1,53 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Pygments CSS Theme Builder</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="{{ site.baseurl }}/builder.html" data-label="new"><i class="fa fa-big fa-file-o"></i> New</a></li>
+        <li><a href="#save_theme_modal" data-toggle="modal" data-label="save"><i class="fa fa-big fa-save"></i> Save</a></li>
+        <li class="dropdown load">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-big fa-file-text-o"></i> Load <i class="fa fa-big fa-caret-down"></i></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <script type="text/javascript">
+              var themes = Theme.findAll({
+                orderBy: 'updatedAt DESC'
+              });
+
+              if (themes.length) {
+                themes.forEach(function(theme) {
+                  document.write('<li><a href="#" data-label="load" data-load="' + theme.attr('name') + '">' + theme.attr('name') + '</a></li>');
+                });
+              } else {
+                document.write('<li class="dropdown-header">You don\'t have any saved themes</li>');
+              }
+            </script>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="hidden-xs" href="{{ site.baseurl }}/index.html" data-event="navigate" data-label="previews"><i class="fa fa-big fa-eye"></i> Go back to previews</a>
+          <a class="visible-xs" href="{{ site.baseurl }}/index.html" data-event="navigate" data-label="previews" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-big fa-eye"></i> Go back to previews</a>
+
+        </li>
+        <li>
+          <a class="hidden-xs" href="#" data-event="navigate" data-label="about" data-toggle="modal" data-target="#about_modal" href="#about"><i class="fa fa-big fa-info-circle"></i> About</a>
+          <a class="visible-xs" href="#" data-event="navigate" data-label="about" data-toggle="modal" data-target="#about_modal"><i class="fa fa-big fa-info-circle"></i> About</a>
+        </li>
+      </ul>
+    </div>
+  <!-- /.navbar-collapse -->
+  </div>
+<!-- /.container -->
+</nav>

@@ -1,0 +1,64 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Pygments CSS Themes</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <p class="navbar-text">Preview Language:</p>
+      <ul class="nav navbar-nav nav-left">
+        <li class="dropdown language-dropdown">
+          {% assign languages = site.data.languages %}
+          {% assign current = page.url | remove:'/languages/' | remove:'.html' %}
+          {% for language in languages %}
+            {% if language.identifier == current %}
+              {% assign current = language %}
+            {% endif %}
+          {% endfor %}
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> {{ current.name }} <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            {% for language in languages %}
+              <li>
+                <a href="{{ language.identifier }}.html" data-event="change_preview_lang" data-label="{{ language.identifier }}">
+                  <i class="fa fa-circle{% if language.identifier != current.identifier %}-o{% endif %}"></i>&nbsp;&nbsp;
+                  {{ language.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+      <label for="search" class="control-label navbar-text">
+        Search themes:
+      </label>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group has-feedback">
+          <a href="#" class="form-control-feedback" data-dismiss="search">
+            <i class="fa fa-close"></i>
+          </a>
+          <input id="search" type="text" class="form-control input-sm" placeholder="Search" data-provide="typeahead" autocomplete="off">
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a class="hidden-xs" data-event="navigate" data-label="builder" href="{{ site.baseurl}}/builder.html"><i class="fa fa-big fa-magic"></i> Create your own theme <i class="fa fa-big fa-arrow-right"></i></a>
+          <a class="visible-xs" data-event="navigate" data-label="builder" href="{{ site.baseurl}}/builder.html" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-big fa-magic"></i> Create your own theme <i class="fa fa-big fa-arrow-right"></i></a>
+        </li>
+        <li>
+          <a class="hidden-xs" data-event="navigate" data-label="about" data-toggle="modal" data-target="#about_modal" href="#about"><i class="fa fa-big fa-info-circle"></i> About</a>
+          <a class="visible-xs" data-event="navigate" data-label="about" href="#" data-toggle="modal" data-target="#about_modal"><i class="fa fa-big fa-info-circle"></i> About</a>
+        </li>
+      </ul>
+    </div>
+  <!-- /.navbar-collapse -->
+  </div>
+<!-- /.container -->
+</nav>
